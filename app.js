@@ -1,13 +1,20 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const bodyParser = require("body-parser");
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const index = require('./routes/index');
+const users = require('./routes/users');
 
-var app = express();
+const app = express();
+const bcrypt = require('bcrypt-as-promised');
+
+//configure knex 
+const environment = process.env.NODE_ENV || 'development';
+const knexConfig = require('./knexfile.js')[environment];
+const knex = require('knex')(knexConfig);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
