@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Posts</h1>
+    <ul>
+    <% for (var i = 0; i<posts.length; i++) { %>
+      <li><a href=/users/<%=users[i].id %>><%= users[i].username %></a> 
+      <h6 action="delete">delete</h6></li>
+    <% } %>
+  </ul>
+  </body>
+</html>

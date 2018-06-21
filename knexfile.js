@@ -1,10 +1,10 @@
 // Update with your config settings.
-
+const myPass = require('./myPass');
 module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://kin:psql@localhost/userBlog'
+    connection: `postgres://${myPass}@localhost/userBlog`
   },
 
   staging: {
